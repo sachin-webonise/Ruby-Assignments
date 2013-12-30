@@ -2,8 +2,7 @@ $string1 = "RUBY parses a file by looking for <br/> one of the special tags that
 $string2 = "RUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used."
 
 class Assignment
-   @@no_of_customers=0
-    
+   
    def initialize()
       @array1= $string1.split(" ")
    end
