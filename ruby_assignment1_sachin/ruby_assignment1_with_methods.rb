@@ -195,15 +195,32 @@ class Assignment
    print "\n Date after 20 days is: "
    today = Date.today
    twenty_days_from_now = (today + 20)
-   print "After 7 days: #{twenty_days_from_now}\n" 
+   print " #{twenty_days_from_now}\n" 
  end#end method
  def print_date_in_array_format
    print "\n\n----------------20) Print date in array format.-----------------------------\n\n"
    time1 = Time.new
-   puts "Time in array format : #{["time1.day" , "time1.month" , "time1.year"]}" 
+   puts "Time in array format : #{["time.day" , "time.month" , "time.year"]}" 
  end#end method
-
-
+ def regex_for_email_for_weboniselab_domain(email)
+     print "\n\n21) write regex for email for only weboniselab domain\n"
+     if email =~ /^[a-z A-Z]+[\.|\_|\-][a-z A-Z 0-9]* [\@]weboniselab.com/
+         print "\n Matching email with pattern\n"
+     else
+         print "\n NOT Matching email with pattern\n"
+     end
+      
+ end#end method
+ def regex_for_phone_number_pattern(phone_number)
+   print "\n\n22)write regex for phone no format : '+78'followed by 8 nos\n"
+     if phone_number =~ /^[\+]78________/
+         print "\n Matching phone number with pattern\n"
+     else
+         print "\n NOT Matching phone number with pattern\n"
+     end
+  
+ end
+ 
      
 end#end class
 
@@ -221,7 +238,7 @@ assignment_object.combine_strings
 assignment_object.print_current_date
 assignment_object.print_given_date(12,1,2012)
 assignment_object.add_seven_days_to_current_date
-print "\n\n------------------13...) Cut the string 1 into 4 parts & print it.------------------------\n\n"
+print "\n\n------------------13) Cut the string 1 into 4 parts & print it.------------------------\n\n"
 assignment_object.cut_string_into_given_no_of_parts(4)
 
 assignment_object.divide_string_and_combine_array
@@ -230,6 +247,9 @@ assignment_object.find_string_lengths
 assignment_object.compare_dates_and_calculate_days(12,04,2010,12,05,2011)
 assignment_object.print_date_after_twenty_days
 assignment_object.print_date_in_array_format
+assignment_object.regex_for_email_for_weboniselab_domain("sachin.wagh@weboniselab.com")
+assignment_object.regex_for_phone_number_pattern("+7898328732")
+
 
 
 
