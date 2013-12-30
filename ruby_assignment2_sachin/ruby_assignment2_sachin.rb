@@ -5,9 +5,9 @@ def sum_of_cubes(number1,number2)
   sum_of_cubes+= (i**3)
  end
  sum_of_cubes 
-end#end method
-puts sum_of_cubes(2,4)
+end
 
+puts sum_of_cubes(2,4)
 
 given_array = [1,2,2,3,3,4,5]
 def non_duplicated_values(given_array)
@@ -23,17 +23,17 @@ def non_duplicated_values(given_array)
        flag_for_a_duplicate=false       
      end 
     inner_index +=1
-   end#end inner while
+   end
    if flag_for_a_duplicate == true
      non_repeated_values[non_repeated_element_index]=given_array[outer_index]        
       non_repeated_element_index +=1
    end
   outer_index +=1
- end#end outer while
+ end
 non_repeated_values  
-end#end method
-print non_duplicated_values(given_array)
+end
 
+print non_duplicated_values(given_array)
 
 def palindrome?(string)
   is_palindrome=true
@@ -45,9 +45,8 @@ def palindrome?(string)
   
   words_in_string.length.times do |index|
       other_string.concat(words_in_string[index])	
-  end#end times
-  puts other_string
-  
+  end
+
   forward_moving_index=0
   back_moving_index=other_string.length-1
   while forward_moving_index < back_moving_index do
@@ -56,11 +55,9 @@ def palindrome?(string)
      end
     forward_moving_index+=1
     back_moving_index-=1  
-  end#end while
-  
-
- is_palindrome
-end# end method
+  end
+  is_palindrome
+end
 puts palindrome?("Never odd or even")
 
 def kaprekar_number?(number)
@@ -83,7 +80,50 @@ def kaprekar_number?(number)
   end
   kapreker_number
 end
-print kaprekar_number?(90)
+print kaprekar_number?(9)
+
+def proc_lamda_dif_one
+p = Proc.new { |x, y, z| puts 100 * x + 10 * y + z } 
+p.call 14, 9, 2, 55
+
+#l = lambda { |x, y, z| puts 100 * x + 10 * y + z } 
+#l.call 14, 9, 2, 55
+end
+proc_lamda_dif_one
+
+def proc_method
+p = Proc.new { return "\nreturning from proc\n"} 
+p.call
+print "\nStatement after proc\n"
+end
+proc_method
+
+
+def lamda_method
+  l = lambda { return "\nreturning from lamda\n"}
+  l.call
+  print "\nStatement after lamda\n"
+end
+lamda_method
+$catch_block=""
+def block_vs_proc_lamda
+  
+  puts $catch_block
+  print "In method: before yield\n"
+  yield
+  print "In method: after yield\n"
+  
+  p = Proc.new { |my_var| print "in method in proc #{my_var}\n"} 
+  p.call 10
+  l = lambda { |lamda_var| print "in method in lambda #{lamda_var}\n"}
+  l.call 11 
+  puts $catch_block
+end
+$catch_block=block_vs_proc_lamda{
+  print "\nIn myBlock\n"
+}
+
+
 
  
 
