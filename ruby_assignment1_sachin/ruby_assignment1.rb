@@ -2,6 +2,7 @@ string1 = "RUBY parses a file by looking for <br/> one of the special tags that 
 string2 = "RUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used."
 #puts string1
 #puts string2
+print "\n\n-------------5) Find occurance of RUBY from string 1. ---------------------\n"
 array1 = string1.split(" ")
 
 $flag=0 #1st<br/> NOT detected
@@ -23,7 +24,8 @@ while $index < array1.length  do
    $index +=1
 end
 #################################################
-print "\n"
+print "\n\n-------------6) Find the position where RUBY occures in the string 1.-----------\n\n"
+
 $index = 0
 while $index < array1.length  do
   if array1[$index] == "RUBY"
@@ -35,7 +37,7 @@ while $index < array1.length  do
 end 
 
 #################################################
-print "\n"
+print "\n\n-------------7) Create array of words in string 1 & print them using a recursive function.-----\n\n"
 $arrayOfwordsFromString = string1.split(" ")
 puts "\nno of words from string1 is: #{$arrayOfwordsFromString.length} and words are: "
 def print_word_in_string1(indexOfWord)
@@ -47,19 +49,22 @@ def print_word_in_string1(indexOfWord)
 end
 print_word_in_string1($arrayOfwordsFromString.length)
 #################################################
-print "\n\n"
+print "\n\n----------------------------8) Capitalise string 1-----------------------------\n\n"
 #string1.upcase!
 puts string1.upcase
 #################################################
+print "\n\n----------------------------9) Combine string 1 & 2---------------------------------\n\n"
 print "\n\n"
 #string1.concat(string2)
 puts string1
 #################################################
-print "\n\n"
+print "\n\n----------------------------10) Print current date------------------------------------\n\n"
+
 time = Time.new
 print "Current Date is: "
 puts time.strftime("(%Y-%m-%d)\n")
 #################################################
+print "\n\n----------------------------11) print 12th Jan 2012----------------------------------\n\n"
 passedTime = Time.local(2012,1,12)
 puts passedTime.strftime("(%Y-%m-%d)\n")
 print passedTime.day
@@ -104,11 +109,13 @@ print "\n"
 
 
 #################################################
+print "\n\n----------------------------12) add 7 days in current date------------------------------\n\n"
 require 'date'
 today = Date.today
 seven_days_from_now = (today + 7)
 print "After 7 days: #{seven_days_from_now}\n"
-#################################################
+#################################################13...) Cut the string 1 into 4 parts & print it.
+print "\n\n------------------13...) Cut the string 1 into 4 parts & print it.------------------------\n\n"
 length_of_single_part = string1.length/4
 
 puts string1.length
@@ -126,6 +133,7 @@ while $index<string1.length do
 end
 print "\n\n\n\n"
 ##################################################
+print "\n\n-------14...) Divide the string 1 by occurances of '.'. Combine the array in reverse word sequence------\n\n"
 
 string_saperated_by_occurance_of_dot=string1.split(".")
 #puts string_saperated_by_occurance_of_dot
@@ -140,7 +148,7 @@ while index < string_saperated_by_occurance_of_dot.length do
  index +=1
 
 end
-print "\n-------------now array is: ------------------------------\n"
+print "\n Now array is: ------------: \n"
 index=0
 while index < string_saperated_by_occurance_of_dot.length do
    print "\nPart of array\n"
@@ -148,8 +156,9 @@ while index < string_saperated_by_occurance_of_dot.length do
    index +=1
 end
 #####################################################
+
+print "\n\n--------------15) Remove the HTML characters from string.--------------\n\n"
 array = string1.split(" ")
-print "\n------------------------------------------------------\n"
 print array
 $flag=0 #1st<br/> NOT detected
 $index = 0
@@ -176,9 +185,11 @@ print str
 ######################################################
 
 ################################################
+print "\n\n------------------17) Find the length of string 1 & 2.--------------------\n\n"
 print "\n\nLength of string1 is: #{string1.length}"
 print "\nLength of string2 is: #{string2.length}\n"
 #####################################################
+print "\n\n-----18)Compare two dates. (12-04-2010 & 12-05-2011). Calculate the days between these two dates.----\n\n"
 time_1 = Time.new(2010,04,12)
 time_2 = Time.new(2011,05,12)
 if time_1.to_date == time_2.to_date
@@ -187,13 +198,16 @@ end
 print "\nNumber of days between given dates are:#{(time_2-time_1)/(24*60*60)}"
 
 ######################################################
+print "\n\n-------------19) Print date after 20 days from current date----------------\n\n"
 print "\n Date after 20 days is: "
 today = Date.today
 twenty_days_from_now = (today + 20)
 print "After 7 days: #{twenty_days_from_now}\n"
 ######################################################
+print "\n\n----------------20) Print date in array format.-----------------------------\n\n"
 time1 = Time.new
-puts "Time in array format : #{[time.day , time.month , time.year]}" 
+puts "Time in array format : #{[time1.day , time1.month , time1.year]}" 
 ######################################################
-/^[a-z A-Z][\.|\_|\-]? [a-z A-Z 0-9]* [\@][a-z A-Z]+ [\.]? [a-z A-Z]/ #regex for webonise mail domain
+/^[a-z A-Z]+[\.|\_|\-][a-z A-Z 0-9]* [\@]weboniselab.com/ #regex for webonise mail domain
+/^\+78[________]/
 
