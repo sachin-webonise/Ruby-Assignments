@@ -203,7 +203,7 @@ class Assignment
  end#end method
  def regex_for_email_for_weboniselab_domain(email)
      print "\n\n21) write regex for email for only weboniselab domain\n"
-     if email =~ /^[a-z A-Z]+[\.|\_|\-][a-z A-Z 0-9]* [\@]weboniselab.com/
+     if email =~ /^[a-z A-Z][\.|\_|\-][a-z A-Z 0-9]* [\@]weboniselab.com/
          print "\n Matching email with pattern\n"
      else
          print "\n NOT Matching email with pattern\n"
@@ -212,14 +212,40 @@ class Assignment
  end#end method
  def regex_for_phone_number_pattern(phone_number)
    print "\n\n22)write regex for phone no format : '+78'followed by 8 nos\n"
-     if phone_number =~ /^[\+]78________/
+    #/^[\+]78________$/
+     if phone_number =~ /(^[\+78])(\d[0-9][8])\z/
          print "\n Matching phone number with pattern\n"
      else
          print "\n NOT Matching phone number with pattern\n"
      end
-  
- end
- 
+ end#end method
+ def regex_to_find_site_and_type(url)
+   print "\n\n23) finding site name and type from a url string using regex\n"
+    
+     if url =~ //
+         print "\n Matching with pattern\n"
+     else
+         print "\n NOT Matching with pattern\n"
+     end
+ end#end method
+ def regex_for_given_pattern(given_pattern)
+   print "\n\n24) write regex for this format a.bcdef0000000000000e+05\n"
+
+     if given_pattern =~ //
+         print "\n Matching with pattern\n"
+     else
+         print "\n NOT Matching with pattern\n"
+     end
+ end#end method
+ def regex_for_given_date_format(given_date_format)
+   print "\n\n25)Write Regex for Following date format like 11th Nov 2013 12:34:46\n"
+
+     if given_date_format =~ //
+         print "\n Matching given date with pattern\n"
+     else
+         print "\n NOT Matching given date with pattern\n"
+     end
+ end#end method
      
 end#end class
 
@@ -248,6 +274,10 @@ assignment_object.print_date_after_twenty_days
 assignment_object.print_date_in_array_format
 assignment_object.regex_for_email_for_weboniselab_domain("sachin.wagh@weboniselab.com")
 assignment_object.regex_for_phone_number_pattern("+7898328732")
+#assignment_object.regex_to_find_site_and_type("http://www.xyz.com/classid/17950142?type=mandatory")
+#assignment_object.regex_for_given_pattern("a.bcdef0000000000000e+05")
+#assignment_object.regex_for_given_date_format("11th Nov 2013 12:34:46")
+
 
 
 
