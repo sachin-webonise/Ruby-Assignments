@@ -1,0 +1,19 @@
+webonise@webonise-desktop:~/Ruby-Assignments/ruby_assignment2$ ruby ruby_assignment2_sachin.rb
+
+ Sum of cubes is:99
+ Non duplicated values from given array are: [1, 4, 5]
+
+Given string is a Palindrome
+
+Given number is Kaprekar Number
+105
+
+Statement after lamda
+In method: before yield
+
+In myBlock
+In method: after yield
+in method in proc 10
+in method in lambda 11
+
+webonise@webonise-desktop:~/Ruby-Assignments/ruby_assignment2$ 
