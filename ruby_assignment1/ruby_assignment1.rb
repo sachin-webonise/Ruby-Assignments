@@ -1,29 +1,31 @@
-$string1 = "RUBY parses a file by looking for <br/> one of the special tags \ 
-that tells it to start interpreting the text as RUBY code. The parser then \ 
-executes all of the code it finds until it runs into a RUBY closing <br/> tag"
+$string1 = "RUBY parses a file by looking for <br/> one of the special tags "+ 
+"that tells it to start interpreting the text as RUBY code. The parser then "+
+"executes all of the code it finds until it runs into a RUBY closing <br/> tag"
 $string2 = "RUBY does not require (or support) explicit type definition in \
 variable declaration; a variable's type is determined by the context in which \
 the variable is used."
+ puts $string1  
+$array1= $string1.split(" ")
    
-array1= $string1.split(" ")
-   
-def find_occurance_of_ruby
+def find_occurance_of_ruby  
 	count_ruby=0
-	array1.each do |element|
+	$array1.each do |element|
 		if element == "RUBY"
-			count+=1
-		end 
-			count_ruby 
+			count_ruby+=1
+		end 		
   end
+  count_ruby 
 end
-puts find_occurance_of_ruby
+print "#{find_occurance_of_ruby}"
 
 def find_position_of(word)
   pos_ruby=1
-	array1.each do |element|
-	if element == word
-		print "\n#{word} occured at position: #{pos_ruby}"
-	end
+	$array1.each do |element|
+	  if element == word
+      print "\n#{word} occured at position: #{pos_ruby}\n"      
+	  end
+  pos_ruby+=1
+  end
 end
 find_position_of("RUBY")
 
@@ -32,30 +34,27 @@ def recursive_print(index_of_word)
 	if index_of_word > 0
     recursive_print(index_of_word-1)    
   end 
-  print " #{array1[index_of_word]}"    
+  print " #{$array1[index_of_word]}"    
 end
-recursive_print(array1.length)
+print "\nRecursive_print: \n"
+recursive_print($array1.length)
+print "\n\n"
 
 def capitalise
   puts $string1.upcase
 end
+print "\nAfter capitalising: \n"
 capitalise
-
-def combine_strings
-  $string1.concat($string2)
-  puts $string1
-end
 
 def print_current_date
   time = Time.new
-  print "Current Date is: "
+  print "\nCurrent Date is: "
   puts time.strftime("(%Y-%m-%d)\n")
 end
 print_current_date
 
 def print_given_date(day,month,year)
   date = Time.local(year,month,day)
-  #puts date.strftime("(%Y-%m-%d)\n")
   print date.day
   postfix=["st","nd","rd","th"]
   day=date.day
@@ -63,44 +62,46 @@ def print_given_date(day,month,year)
   if exceptional_dates.include?(day)
     print postfix[3]
   else
-    index=day%10
-    print postfix[index]
+    last_digit=day%10
+    if [4..9].include?(last_digit)
+      print postfix[3]
+    else
+      print postfix[last_digit-1]
+    end
   end
-  
   months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-  print "#{months[date.month+1]}"
-  print passedTime.year
+  print " #{months[date.month-1]} "
+  print date.year
   print "\n"
 end 
+print "\nGiven date is: "
+print_given_date(12,1,2019)
 
 def add_days(no_of_days)
 	require 'date'
 	today = Date.today
-	seven_days_from_now = (today + 7)
-	print "After 7 days: #{seven_days_from_now}\n"
+	future_day = (today + no_of_days)
+	print "After #{no_of_days} days: #{future_day}\n\n"
 end
 add_days(7)
 
 def cut_string_into(no_of_parts)
-	length_of_single_part = $string1.length/no_of_parts
-  puts $string1.length
-  index=0
-  index_for_single_part=0
-
-  $string1.chars.each do |char|
-    puts "\nA Part of string: \n"
-    length_of_single_part.times do |index|
-      print char
-    end    
+  length_of_single_part = $string1.length/no_of_parts
+  start_index=0
+  end_index=length_of_single_part
+  no_of_parts.times do |part_index|
+    puts $string1[start_index ... end_index]
+    start_index=end_index
+    end_index+=length_of_single_part    
   end
-
-  print "\n\n\n\n"   
+  print "\n"   
 end
 cut_string_into(4)
+#puts $string1
 
 def divide_combine        
   dot_saperated_string=$string1.split(".")
-  words_from_splited_strings=[""]
+  words_from_splited_strings[]
   temp_word=""
   index=0
   words_array_index=0
@@ -163,6 +164,12 @@ def print_date_in_array_format
   time1 = Time.new
   puts "Time in array format : #{["time.day" , "time.month" , "time.year"]}" 
 end
+def combine_strings
+  puts $string1.concat($string2)
+end
+print "\n\nAfter concatenation: \n\n"
+combine_strings
+print "\n"
 
 def regex_for_email_for_weboniselab_domain(email)
   if email =~ /^[a-z A-Z][\.|\_|\-][a-z A-Z 0-9]* [\@]weboniselab.com/
