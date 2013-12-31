@@ -1,15 +1,14 @@
-given_array = [1,2,2,3,3,4,5]
-
 # This method takes two numbers and returns their sum of cubes
 def sum_of_cubes(number1,number2)
- sum_of_cubes=0
- range=number1..number2
- range.each do |number|
-  sum_of_cubes+= (number**3)
- end
- sum_of_cubes 
+  sum_of_cubes=0
+  range=number1..number2
+  range.each do |number|
+    sum_of_cubes+= (number**3)
+  end
+  sum_of_cubes 
 end
 
+given_array = [1,2,2,3,3,4,5]
 #This method takes an array and returns non-repeating elements
 def get_non_duplicated(given_array)
   non_repeated_values=[""]
@@ -25,7 +24,7 @@ def get_non_duplicated(given_array)
       end 
       inner_index +=1
     end
-    if flag_for_a_duplicate == true
+    if flag_for_a_duplicate
       non_repeated_values[non_repeated_index]=first_num
       non_repeated_index +=1
     end
@@ -36,48 +35,27 @@ end
 
 #This method takes a string returns true if it is palindrome and viceversa
 def palindrome?(string)
-  is_palindrome=true
+  string.delete!(' ')
   string.downcase!
-  string.lstrip!
-  string.rstrip!
-  words_in_string=string.split(" ");
-  string=""
-  words_in_string.each do |word|
-    string.concat(word) 
-  end
-
-  forward_index=0
-  backward_index=string.length-1
-  while forward_index < backward_index do
-    if string[forward_index] != string[backward_index]
-      is_palindrome=false
-    end
-    forward_index+=1
-    backward_index-=1  
-  end
-  is_palindrome
+  reversed_string=string.reverse
+  puts string
+  puts reversed_string
+  reversed_string.eql?(string)
 end
 
 #This method takes a number returns true if it is kaprekar number and viceversa
 def kaprekar_number?(number)
-  is_kaprekar_number=false
   square=number**2
   first_operand=0
-  second_operand=0
   number_in_string=""
   number_in_string=number.to_s
   number_of_digits=number_in_string.length
-
   number_of_digits.times do |index|
     last_digit=square%10   
     first_operand+=last_digit*(10**index)
     square/=10
   end
-  second_operand=square
-  if number==(first_operand+second_operand) 
-    is_kapreker_number=true
-  end
-  is_kapreker_number
+  number==(first_operand+square) 
 end
 
 #This method contains proc and lambda and gives error if lambda is called with\
