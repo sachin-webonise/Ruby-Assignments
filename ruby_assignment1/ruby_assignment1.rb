@@ -32,9 +32,9 @@ def recursive_print(index_of_word)
 	if index_of_word > 0
     recursive_print(index_of_word-1)    
   end 
-  print " #{$arrayOfwordsFromString[index_of_word]}"    
+  print " #{array1[index_of_word]}"    
 end
-recursive_print()
+recursive_print(array1.length)
 
 def capitalise
   puts $string1.upcase
@@ -81,163 +81,126 @@ def add_days(no_of_days)
 end
 add_days(7)
 
-def cut_string_into_given_no_of_parts(no_of_parts)
+def cut_string_into(no_of_parts)
 	length_of_single_part = $string1.length/no_of_parts
   puts $string1.length
   index=0
   index_for_single_part=0
 
-  while index<$string1.length do
+  $string1.chars.each do |char|
     puts "\nA Part of string: \n"
-    while index_for_single_part < length_of_single_part do
-      print $string1[index]
-      index_for_single_part+=1
-      index+=1
-    end
-    index_for_single_part=0  
+    length_of_single_part.times do |index|
+      print char
+    end    
   end
 
   print "\n\n\n\n"   
 end
+cut_string_into(4)
 
-  def divide_combine        
-	string_saperated_by_occurance_of_dot=$string1.split(".")
-	#puts string_saperated_by_occurance_of_dot
-	words_from_splited_strings=["",""]
-	temp_word=""
-	#words_from_splited_strings=""
-	index=0
-	index_for_words_array=0
-	while index < string_saperated_by_occurance_of_dot.length do
-	 words_from_splited_strings[index]=string_saperated_by_\
-         occurance_of_dot[index].split(" ")
-	 words_from_splited_strings[index].reverse!
-	 index +=1
-
-	end
-	print "\n Now array is: ------------: \n"
-	index=0
-	while index < string_saperated_by_occurance_of_dot.length do
-	   print "\nPart of array\n"
-	   print words_from_splited_strings[index]
-	   index +=1
-	end
+def divide_combine        
+  dot_saperated_string=$string1.split(".")
+  words_from_splited_strings=[""]
+  temp_word=""
+  index=0
+  words_array_index=0
+  while index < dot_saperated_string.length do
+    words_from_splited_strings[index]=string_saperated_by_\
+              occurance_of_dot[index].split(" ")
+    words_from_splited_strings[index].reverse!
+    index +=1
   end
 
-  def remove_html_characters
-	
-	array = $string1.split(" ")
-	#print array
-	 
-        flag=0 #1st<br/> NOT detected
-	index = 0
-	index_for_str=0
-	str=[""]
-	while index < array.length  do
-	   
-	     if array[index] == "<br/>"
-                index +=1
-	     end     
-	  str[index_for_str] = array[index]
-         index +=1 
-         index_for_str +=1
-	end
-         
-         print "\nAfter Removing HTML characters: \n"
-         print str
+  print "\n Now array is: ------------: \n"
+  index=0
+  while index < dot_saperated_string.length do
+    print "\nPart of array\n"
+    print words_from_splited_strings[index]
+    index +=1
+  end
+end
+
+def remove_html_characters
+  array = $string1.split(" ")
+  flag=0 #1st<br/> NOT detected
+  index = 0
+  index_for_str=0
+  str=[""]
+  while index < array.length  do
+    if array[index] == "<br/>"
+      index +=1
+    end     
+    str[index_for_str] = array[index]
+    index +=1 
+    index_for_str +=1
+  end
+  print "\nAfter Removing HTML characters: \n"
+  print str
+end
+
+def find_string_lengths
+  print "\n\nLength of $string1 is: #{$string1.length}"
+  print "\nLength of $string2 is: #{$string2.length}\n"
+end
+
+def compare_dates_and_calculate_days(day1,month1,year1,day2,month2,year2)
+  time_1 = Time.new(year1,month1,day1)
+  time_2 = Time.new(year2,month2,day2)
+  if time_1.to_date == time_2.to_date
+    print "\nDays are Same"
+  end
+    print "\nNumber of days between given dates are:#{(time_2-time_1)/(24*60*60)}\n"
+end
+
+def print_future_date
+  print "\n Date after 20 days is: "
+  today = Date.today
+  twenty_days_from_now = (today + 20)
+  print " #{twenty_days_from_now}\n" 
+end
+
+def print_date_in_array_format
+  time1 = Time.new
+  puts "Time in array format : #{["time.day" , "time.month" , "time.year"]}" 
+end
+
+def regex_for_email_for_weboniselab_domain(email)
+  if email =~ /^[a-z A-Z][\.|\_|\-][a-z A-Z 0-9]* [\@]weboniselab.com/
+    print "\n Matching email with pattern\n"
+  else
+    print "\n NOT Matching email with pattern\n"
+  end
+end
+
+def regex_for_phone_number_pattern(phone_number)
+#/^[\+]78________$/
+  if phone_number =~ /(^[\+78])(\d[0-9][8])\z/
+    print "\n Matching phone number with pattern\n"
+  else
+    print "\n NOT Matching phone number with pattern\n"
+  end
+end
+
+def regex_to_find_site_and_type(url)
+  if url =~ //
+    print "\n Matching with pattern\n"
+  else
+    print "\n NOT Matching with pattern\n"
+  end
+end
+
+def regex_for_given_pattern(given_pattern)
+ if given_pattern =~ //
+    print "\n Matching with pattern\n"
+ else
+    print "\n NOT Matching with pattern\n"
  end
+end
 
- def find_string_lengths
-   print "\n\nLength of $string1 is: #{$string1.length}"
-   print "\nLength of $string2 is: #{$string2.length}\n"
- end
-
- def compare_dates_and_calculate_days(day1,month1,year1,day2,month2,year2)
-   time_1 = Time.new(year1,month1,day1)
-   time_2 = Time.new(year2,month2,day2)
-   if time_1.to_date == time_2.to_date
-     print "\nDays are Same"
-   end
-     print "\nNumber of days between given dates are:#{(time_2-time_1)/(24*60*60)}\n"
- end
-
- def print_future_date
-   print "\n Date after 20 days is: "
-   today = Date.today
-   twenty_days_from_now = (today + 20)
-   print " #{twenty_days_from_now}\n" 
- end
-
- def print_date_in_array_format
-   time1 = Time.new
-   puts "Time in array format : #{["time.day" , "time.month" , "time.year"]}" 
- end
-
- def regex_for_email_for_weboniselab_domain(email)
-     if email =~ /^[a-z A-Z][\.|\_|\-][a-z A-Z 0-9]* [\@]weboniselab.com/
-         print "\n Matching email with pattern\n"
-     else
-         print "\n NOT Matching email with pattern\n"
-     end
- end
-
- def regex_for_phone_number_pattern(phone_number)
-     #/^[\+]78________$/
-     if phone_number =~ /(^[\+78])(\d[0-9][8])\z/
-         print "\n Matching phone number with pattern\n"
-     else
-         print "\n NOT Matching phone number with pattern\n"
-     end
- end
-
- def regex_to_find_site_and_type(url)
-     if url =~ //
-         print "\n Matching with pattern\n"
-     else
-         print "\n NOT Matching with pattern\n"
-     end
- end
-
- def regex_for_given_pattern(given_pattern)
-     if given_pattern =~ //
-         print "\n Matching with pattern\n"
-     else
-         print "\n NOT Matching with pattern\n"
-     end
- end
-
- def regex_for_given_date_format(given_date_format)
-     if given_date_format =~ //
-         print "\n Matching given date with pattern\n"
-     else
-         print "\n NOT Matching given date with pattern\n"
-     end
- end
-
-
-
-
-
-$arrayOfwordsFromString = $string1.split(" ")
-puts "\nno of words from string1 is: #{$arrayOfwordsFromString.length} and words are: "
-print "\n\n"
-
-remove_html_characters
-combine_strings
-print_current_date
-print_given_date(12,1,2012)
-
-
-cut_string_into_given_no_of_parts(4)
-
-divide_combine
-remove_html_characters
-find_string_lengths
-compare_dates_and_calculate_days(12,04,2010,12,05,2011)
-print_date_after_twenty_days
-print_date_in_array_format
-regex_for_email_for_weboniselab_domain("sachin.wagh@weboniselab.com")
-regex_for_phone_number_pattern("+7898328732")
-#regex_to_find_site_and_type("http://www.xyz.com/classid/17950142?type=mandatory")
-#regex_for_given_pattern("a.bcdef0000000000000e+05")
-#regex_for_given_date_format("11th Nov 2013 12:34:46")
+def regex_for_given_date_format(given_date_format)
+  if given_date_format =~ //
+    print "\n Matching given date with pattern\n"
+  else
+    print "\n NOT Matching given date with pattern\n"
+  end
+end
