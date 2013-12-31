@@ -5,11 +5,11 @@ $string2 = "RUBY does not require (or support) explicit type definition in \
 variable declaration; a variable's type is determined by the context in which \
 the variable is used."
    
-@array1= $string1.split(" ")
+array1= $string1.split(" ")
    
 def find_occurance_of_ruby
 	count_ruby=0
-	@array1.each do |element|
+	array1.each do |element|
 		if element == "RUBY"
 			count+=1
 		end 
@@ -20,7 +20,7 @@ puts find_occurance_of_ruby
 
 def find_position_of(word)
   pos_ruby=1
-	@array1.each do |element|
+	array1.each do |element|
 	if element == word
 		print "\n#{word} occured at position: #{pos_ruby}"
 	end
@@ -55,58 +55,50 @@ print_current_date
 
 def print_given_date(day,month,year)
   date = Time.local(year,month,day)
-  puts date.strftime("(%Y-%m-%d)\n")
+  #puts date.strftime("(%Y-%m-%d)\n")
   print date.day
+  postfix=["st","nd","rd","th"]
   day=date.day
-  if day == 4..20
-    print "st" 
+  exceptional_dates=11..13
+  if exceptional_dates.include?(day)
+    print postfix[3]
   else
-    case day % 10   
- 			when 1
-      	print "st"
-      when 2
-        print "nd" 
-      when 3
-        print "rd"
-      else
-        print "st"
-		end	
+    index=day%10
+    print postfix[index]
   end
-  months = Hash.new
-  months = {"1" => "Jan", "2" => "Feb", "3" => "Mar", "4" => "Apr",\
-            "5" => "May", "6" => "Jun", "7" => "Jul", "8" => "Aug",\
-            "9" => "Sep", "10" => "Oct", "11" => "Nov", "12" => "Dec"}
-  month = months.day
-  print "#{month}"
+  
+  months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+  print "#{months[date.month+1]}"
   print passedTime.year
   print "\n"
 end 
 
-  def add_seven_days_to_current_date
-    require 'date'
-    today = Date.today
-    seven_days_from_now = (today + 7)
-    print "After 7 days: #{seven_days_from_now}\n"
+def add_days(no_of_days)
+	require 'date'
+	today = Date.today
+	seven_days_from_now = (today + 7)
+	print "After 7 days: #{seven_days_from_now}\n"
+end
+add_days(7)
+
+def cut_string_into_given_no_of_parts(no_of_parts)
+	length_of_single_part = $string1.length/no_of_parts
+  puts $string1.length
+  index=0
+  index_for_single_part=0
+
+  while index<$string1.length do
+    puts "\nA Part of string: \n"
+    while index_for_single_part < length_of_single_part do
+      print $string1[index]
+      index_for_single_part+=1
+      index+=1
+    end
+    index_for_single_part=0  
   end
 
-  def cut_string_into_given_no_of_parts(no_of_parts)
-        length_of_single_part = $string1.length/no_of_parts
-	  puts $string1.length
-	  index=0
-	  index_for_single_part=0
-
-	  while index<$string1.length do
-	    puts "\nA Part of string: \n"
-	    while index_for_single_part < length_of_single_part do
-	      print $string1[index]
-	      index_for_single_part+=1
-	      index+=1
-	    end
-	    index_for_single_part=0  
-	  end
-
-	  print "\n\n\n\n"   
-  end
+  print "\n\n\n\n"   
+end
 
   def divide_combine        
 	string_saperated_by_occurance_of_dot=$string1.split(".")
@@ -234,7 +226,7 @@ remove_html_characters
 combine_strings
 print_current_date
 print_given_date(12,1,2012)
-add_seven_days_to_current_date
+
 
 cut_string_into_given_no_of_parts(4)
 
@@ -249,10 +241,3 @@ regex_for_phone_number_pattern("+7898328732")
 #regex_to_find_site_and_type("http://www.xyz.com/classid/17950142?type=mandatory")
 #regex_for_given_pattern("a.bcdef0000000000000e+05")
 #regex_for_given_date_format("11th Nov 2013 12:34:46")
-
-
-
-
-
-
-
