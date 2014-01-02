@@ -1,23 +1,23 @@
-  require 'fileutils'
+require 'fileutils'
 
-  def choices_to_customer
-  end
+def choices_to_customer
+end
 
-  def list_all_products
-  	File.open("inventory", "r") do |file_name|
-  		if file_name
-  			list = IO.readlines(file_name)   			
-  		else
-        puts "Unable to open file!"
-      end
-      file_name.close	
-      list.each do |item|
-       print item
-     end
+def list_all_products
+	File.open("inventory", "r") do |file_name|
+		if file_name
+			list = IO.readlines(file_name)   			
+		else
+      puts "Unable to open file!"
+    end
+    file_name.close	
+    list.each do |item|
+     print item
    end
  end
+end
 
- class Shopkeeper
+class Shopkeeper
   def add_product(product_details)
    File.open("inventory", "a+") do |aFile|
      if aFile
@@ -113,21 +113,22 @@ def choices_to_shopkeeper
   choice = gets
   shopkeeper=Shopkeeper.new
   case choice.to_i
-    when 1
-      product_details=ask_product_details			
-      shopkeeper.add_product(product_details)
-      list_all_products
-    when 2
-      print "\n\nEnter id of the product to be removed: "
-      id_to_be_removed=gets
-      shopkeeper.remove_product(id_to_be_removed.to_i)
-    when 3
-      list_all_products
-    when 4
+  when 1
+    product_details=ask_product_details			
+    shopkeeper.add_product(product_details)
+    list_all_products
+  when 2
+    print "\n\nEnter id of the product to be removed: "
+    id_to_be_removed=gets
+    shopkeeper.remove_product(id_to_be_removed.to_i)
+    list_all_products
+  when 3
+    list_all_products
+  when 4
 
-    when 5
+  when 5
 
-    else
+  else
 
   end
 end
@@ -150,8 +151,8 @@ begin
   else
     puts "Wrong type entered." 	 
   end  
-print "\n\nDo you want to continue(yes/no): "
-choice=gets
+  print "\n\nDo you want to continue(yes/no): "
+  choice=gets
 
 end while(choice.eql?("yes\n"))
 
