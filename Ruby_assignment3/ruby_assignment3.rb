@@ -29,7 +29,7 @@ class Shopkeeper
    end		
   end
 
-  def remove_product(id_to_be_removed)                   ##############################################
+  def remove_product(id_to_be_removed)                 
   	File.open("inventory", "r") do |file_name|
       if file_name
         list = IO.readlines(file_name)   			
@@ -55,9 +55,27 @@ class Shopkeeper
     FileUtils.mv('temp_file', 'inventory')
   end
 
-
-
   def search(product_name)
+    File.open("inventory", "r") do |file_name|
+      if file_name
+        list = IO.readlines(file_name)        
+      else
+        puts "\n\nUnable to open file while searching!"
+      end
+      record_found=false
+      list.each do |record|
+        fields=record.split(" ")        
+        if product_name.eql?("#{fields[1]}\n")
+          record_found=true
+          print "\n\nYour record is: "
+          puts record
+          break
+        end
+      end
+      unless record_found
+        print "\n\nNo product Found !!!!!!"
+      end
+    end
   end
 
   def edit(product_name)
@@ -125,7 +143,9 @@ def choices_to_shopkeeper
   when 3
     list_all_products
   when 4
-
+    print "\n\nEnter name of the product to search: "
+    this_product=gets
+    shopkeeper.search(this_product)
   when 5
 
   else
