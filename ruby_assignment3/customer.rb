@@ -10,7 +10,7 @@ class Customer < Product
   	print "\n Enter your credit card number: "
   	card_no=gets
 
-  	print "\n Enter CVV no of your sredit card: "
+  	print "\n Enter CVV number: "
   	cvv_no=gets
 		return [product_id,cust_name,card_no,cvv_no]
   end
@@ -27,7 +27,6 @@ class Customer < Product
 	  			ask_details_and_search
 	      when 3
 	      	order_details=ask_order_details
-	      	puts "order order_details in choices_to_customer are: #{order_details}"
 	      	store_order(order_details)
 	        buy(order_details)
 	      else

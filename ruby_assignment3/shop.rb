@@ -46,13 +46,13 @@ class Shop
       print "\n\n\tTYPE of Person \n\n1.Shopkeeper \n2.Customer"
       puts "\n Enter your type: "
       type = gets
+
     if type.to_i==1
       shopkeeper=Shopkeeper.new
       begin
         shopkeeper.choices_to_shopkeeper
         print "\n\nHey Shopkeeper do you want to continue(y/n): "
         shopkeeper_choice=gets
-        puts shopkeeper_choice.casecmp("y\n")
       end while(shopkeeper_choice.casecmp("y\n")==0)
     elsif type.to_i==2
       customer=Customer.new
@@ -61,11 +61,11 @@ class Shop
         print "\n\nHey Customer do you want to continue(y/n): "
         customer_choice=gets
         puts customer_choice.casecmp("y\n")
-      end while(customer_choice.casecmp("y\n")==0)
-      
+      end while(customer_choice.casecmp("y\n")==0)  
     else
       puts "\nWrong type entered."   
     end  
+    
     print "\n\nDo you want to continue(y/n): "
     choice=gets
     end while(choice.casecmp("y\n")==0)

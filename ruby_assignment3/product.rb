@@ -7,6 +7,7 @@ class Product
       print "\n\nDetails of the product you want are:\n #{record}"      
     end
   end
+  
 
   def search(product_name)
     File.open("inventory", "r") do |file_name|
@@ -17,7 +18,7 @@ class Product
       end
       record_found=false
       list.each do |record|
-        fields=record.split(" ")        
+        fields=record.split(",")        
         if product_name.eql?("#{fields[1]}\n")
           record_found=true
           return record
@@ -46,7 +47,6 @@ class Product
 
   def store_order(order_details)
     order_record=""
-    puts "order order_details are: #{order_details}"
     order_details.each do |order_attribute|
       order_attribute.to_s
       order_attribute.chomp!
@@ -65,7 +65,41 @@ class Product
     end 
   end
 
+  def search_by_id(product_id)
+    File.open("inventory", "r") do |file_name|
+      if file_name
+        list = IO.readlines(file_name)        
+      else
+        puts "\n\nUnable to open file while searching!"
+      end
+
+      list.each do |record|
+        fields=record.split(",")        
+        if product_id.to_i==fields[0].to_i
+          return record
+        end
+      end
+      print "\n\nNo product Found !!!!!!"
+      return false
+      
+    end
+  end
+
   def buy(order_details)
-    
+    record=search_by_id(order_details[0])
+    if record
+      product_attributes=record.split(",")
+      stock_item=product_attributes[3].to_i
+      if stock_item > 0
+        print "\n\n Product is available."
+        print "\nEnter the no of items you want to buy: "
+        no_of_items=gets
+        total_price=no_of_items.to_i*product_attributes[2].to_i
+        print "\n\nProduct name: #{product_attributes[1]}"
+        print "\nTotal Price: #{total_price}"
+      else
+        print "\n\nProduct is NOT available ......."
+      end
+    end
   end
 end

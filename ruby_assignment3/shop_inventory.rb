@@ -98,13 +98,22 @@ class Shopkeeper < Product
     
     File.open("temp_file", "w") do |temp_file|
       list.each do |record|
-        if id_to_be_edited!=record[0].to_i
+        attributes=record.split(",")
+        if id_to_be_edited!=attributes[0].to_i
           temp_file.syswrite(record)
         else
           puts "\nLets edit details of the product with id= #{id_to_be_edited}: "
           shop=Shop.new
           product_details=shop.ask_product_details(id_to_be_edited)
-          temp_file.syswrite(product_details)
+          record=""
+          product_details.each do |product_attribute|
+            product_attribute.to_s
+            product_attribute.chomp!
+            record.concat("#{product_attribute},")
+          end
+          record.chop!
+          temp_file.syswrite(record)
+          
         end
       end
     end
