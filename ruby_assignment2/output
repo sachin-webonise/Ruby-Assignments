@@ -1,0 +1,18 @@
+webonise@webonise-desktop:~/ruby_assignments/ruby_assignment2$ ruby ruby_methods_proc_lamda.rb
+
+ Sum of cubes is:99
+ Non duplicated values from given array are: [1, 4, 5]
+
+Given string is a Palindrome
+
+Given number is Kaprekar Number
+
+Proc executes even if it has less or more number of parameters
+
+
+Following Error with lamda if it has more or less no of arguments than no of parameters it is catching showing the difference between  proc and lamda: 
+
+ruby_methods_proc_lamda.rb:72:in `block in proc_lamda_dif_one': wrong number of arguments (3 for 2) (ArgumentError)
+	from ruby_methods_proc_lamda.rb:73:in `call'
+	from ruby_methods_proc_lamda.rb:73:in `proc_lamda_dif_one'
+	from ruby_methods_proc_lamda.rb:122:in `<main>'
