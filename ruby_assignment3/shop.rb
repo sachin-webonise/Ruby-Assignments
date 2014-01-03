@@ -2,15 +2,6 @@ class Shop
   def initialize
     @product=Product.new
   end
-  def choices_to_customer
-    print "\n\n\tMENU"
-    print "\n\n1.View List of Products \n4.Search Product \n5.Buy Product"
-    print "\n\nEnter your choice: "
-    choice = gets
-    shopkeeper=Customer.new
-
-  end
-
   
   def get_max_product_id                                 
     list=Array[]
@@ -24,79 +15,59 @@ class Shop
     end 
     max_product_id=0  
     list.each do |record|
-      if max_product_id < record[0].to_i
-        max_product_id=record[0].to_i
+      attributes=record.split(",")
+      if max_product_id < attributes[0].to_i
+        max_product_id=attributes[0].to_i
       end
     end
     print "\n\nMax product id: #{max_product_id}"
-    max_product_id
+    max_product_id.to_i
   end
 
   def ask_product_details(id)
-    product_properties=id.to_s
-    puts "\nEnter product name, price, stock item, company_name: "
-    rest_details=gets
+    puts "\nEnter product name: "
+    product_name=gets
 
-    product_properties.concat(" #{rest_details}")
-    return product_properties
+    puts "\nEnter product price: "
+    price=gets
+
+    puts "\nEnter product stock item: "
+    stock=gets
+
+    puts "\nEnter product company name of the product: "
+    company_name=gets
+    
+    return [id.to_s,product_name,price,stock,company_name]
   end
 
-  def choices_to_shopkeeper
-    print "\n\n\tMENU \n\n1.Add Product \n2.Remove Product"
-    print "\n3.View List of Products \n4.Search Product \n5.Edit product details"
-    print "\n\nEnter your choice: "
-    choice = gets
-    shopkeeper=Shopkeeper.new
-    case choice.to_i
-    when 1
-      id=get_max_product_id
-      id+=1
-      product_details=ask_product_details(id)
-      shopkeeper.add_product(product_details)
-      shopkeeper.list_all_products
-    when 2
-      print "\n\nEnter id of the product to be removed: "
-      id_to_be_removed=gets
-      shopkeeper.remove_product(id_to_be_removed.to_i)
-      shopkeeper.list_all_products
-    when 3
-      shopkeeper.list_all_products
-    when 4
-      print "\n\nEnter name of the product to search: "
-      this_product=gets
-      record=shopkeeper.search(this_product)
-      print "\n\nDetails of the product you want are: #{record}"
-    when 5
-      print "\n\nEnter id of the product to be edited: "
-      id_to_be_edited=gets
-      shopkeeper.edit(id_to_be_edited.to_i)
-      puts "\nAfter editing list of products is: "
-      shopkeeper.list_all_products
-    else
-      puts "Wrong choice !!!"
-    end
-  end
-  
   def go_to_shop
     begin
       puts "Welcome to shop"
-      puts "Enter your type (Shopkeeper/Customer) ?: "
+      print "\n\n\tTYPE of Person \n\n1.Shopkeeper \n2.Customer"
+      puts "\n Enter your type: "
       type = gets
-    if type.eql?("Shopkeeper\n")
+    if type.to_i==1
       shopkeeper=Shopkeeper.new
       begin
-        choices_to_shopkeeper
-        print "\n\nHey Shopkeeper do you want to continue(yes/no): "
+        shopkeeper.choices_to_shopkeeper
+        print "\n\nHey Shopkeeper do you want to continue(y/n): "
         shopkeeper_choice=gets
-      end while(shopkeeper_choice.eql?("yes\n"))
-    elsif type.eql?("Customer\n")
+        puts shopkeeper_choice.casecmp("y\n")
+      end while(shopkeeper_choice.casecmp("y\n")==0)
+    elsif type.to_i==2
       customer=Customer.new
-      choices_to_customer
+      begin
+        customer.choices_to_customer
+        print "\n\nHey Customer do you want to continue(y/n): "
+        customer_choice=gets
+        puts customer_choice.casecmp("y\n")
+      end while(customer_choice.casecmp("y\n")==0)
+      
     else
       puts "\nWrong type entered."   
     end  
-    print "\n\nDo you want to continue(yes/no): "
+    print "\n\nDo you want to continue(y/n): "
     choice=gets
-    end while(choice.eql?("yes\n"))
+    end while(choice.casecmp("y\n")==0)
   end
 end
