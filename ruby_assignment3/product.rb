@@ -39,8 +39,16 @@ class Product
         puts "Unable to open #{file_name}file!"
       end
       file_name.close 
-      list.each do |item|
-      print item
+      print "\nProduct_id     Product_name            Price        "
+      print "Stock Items      Company Name       \n"
+      puts "--------------------------------------------------------------"+
+      "----------------------------"
+      list.each do |record|
+        attributes=record.split(",")
+        attributes.each do |attribute|
+           print "      #{attribute}       " 
+        end
+        print "\n"
       end
     end
   end
@@ -91,12 +99,21 @@ class Product
       product_attributes=record.split(",")
       stock_item=product_attributes[3].to_i
       if stock_item > 0
-        print "\n\n Product is available."
-        print "\nEnter the no of items you want to buy: "
+        print "\n\n No of items of product #{product_attributes[1]} available are: #{stock_item}"
+        print "\nEnter the no of items less than #{stock_item}: "
         no_of_items=gets
-        total_price=no_of_items.to_i*product_attributes[2].to_i
-        print "\n\nProduct name: #{product_attributes[1]}"
-        print "\nTotal Price: #{total_price}"
+        
+        if stock_item >= no_of_items.to_i 
+
+          total_price=no_of_items.to_i*product_attributes[2].to_i
+          print "\n\nProduct name: #{product_attributes[1]}"
+          print "\nTotal Price: #{total_price}"
+          shopkeeper=Shopkeeper.new
+          shopkeeper.edit(product_attributes[0].to_i,false,no_of_items.to_i)
+        else
+          print "\n\nProduct #{product_attributes[1]} is available but only #{stock_item} items are available."
+          print "\nPlease enter less no of items to buy..."
+        end
       else
         print "\n\nProduct is NOT available ......."
       end
