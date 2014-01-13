@@ -55,6 +55,24 @@ RUBY parses a file by looking for <br/> one of the special tags that tells it to
 
  NOT Matching email with pattern
 
- +7845546897 is matching with pattern
+ +7845546897 is matching with given pattern
 
- +8845546897is NOT matching with pattern
+ +8845546897 is NOT matching given with pattern
+
+
+Site name from given url is: www.xyz.com
+Type from given url is: mandatory
+
+
+Site name from given url is: www.abc.co.in
+Type from given url is: mandatory
+
+a.bcdef0000000000000e+05 is matching with pattern
+
+ 11th NOV 2013 12:34:46 is matching with given pattern............!
+
+ 1st Dec 2010 8:59:43 is matching with given pattern............!
+
+ 2sd Dec 2010 8:59:43 is NOT Matching with given pattern............!
+
+ 1st Dec 2010 8:60:43 is NOT Matching with given pattern............!
