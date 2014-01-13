@@ -199,37 +199,43 @@ regex_weboniselab_domain("sachin.s.wagh@Weboniselab.com")
 def regex_phone_number(phone_number)
 #/^[\+]78________$/
   if phone_number =~ /\+78\d{8,8}/
-    print "\n #{phone_number} is matching with pattern\n"
+    print "\n #{phone_number} is matching with given pattern\n"
   else
-    print "\n #{phone_number}is NOT matching with pattern\n"
+    print "\n #{phone_number} is NOT matching given with pattern\n"
   end
 end
 regex_phone_number("+7845546897")
 regex_phone_number("+8845546897")
 
 #Q(23)
-def regex_to_find_site_and_type(url)
-  if url =~ //
-    print "\n Matching with pattern\n"
-  else
-    print "\n NOT Matching with pattern\n"
-  end
+def find_site_and_type(url)
+  info = url.scan(/http\:\/\/(www.(?:\w+)(\.\w{2,3})+)\/\w+\/\d+\?type=(\w+)/i)
+  print "\n\nSite name from given url is: #{info.flatten[0]}"
+  print "\nType from given url is: #{info.flatten[2]}\n"
 end
+find_site_and_type("http://www.xyz.com/classid/17950142?type=mandatory")
+find_site_and_type("http://www.abc.co.in/classid/17950142?type=mandatory")
 
 #Q(24)
 def regex_for_given_pattern(given_pattern)
- if given_pattern =~ //
-    print "\n Matching with pattern\n"
+ if given_pattern.match(/[a-z]\.([a-z]*[0-9]*)*\+[0-9]{2}/i)
+    puts "\n#{given_pattern} is matching with pattern\n"
  else
-    print "\n NOT Matching with pattern\n"
+    puts "\n #{given_pattern} is NOT Matching with pattern\n"
  end
 end
+regex_for_given_pattern("a.bcdef0000000000000e+05")
 
 #Q(25)
-def regex_for_given_date_format(given_date_format)
-  if given_date_format =~ //
-    print "\n Matching given date with pattern\n"
+def given_date_format_regex(given_date)
+  if given_date =~ /\d{1,2}(st|nd|rd|th)\s[A-Z]{3}\s\d{4}\s[1-2]?\d(\:[0-5][0-9]){2,2}/i
+    print "\n #{given_date} is matching with given pattern............!\n"
   else
-    print "\n NOT Matching given date with pattern\n"
+    print "\n #{given_date} is NOT Matching with given pattern............!\n"
   end
 end
+given_date_format_regex("11th NOV 2013 12:34:46")
+given_date_format_regex("1st Dec 2010 8:59:43")
+given_date_format_regex("2sd Dec 2010 8:59:43")
+given_date_format_regex("1st Dec 2010 8:60:43")
+
