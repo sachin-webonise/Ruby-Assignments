@@ -3,7 +3,7 @@ $string1 = "RUBY parses a file by looking for <br/> one of the special tags "+
 "executes all of the code it finds until it runs into a RUBY closing <br/> tag"
 $string2 = "RUBY does not require (or support) explicit type definition in \
 variable declaration; a variable's type is determined by the context in which \
-the variable is used."
+the variable is used." 
 $array1= $string1.split(" ")
  
 #Q(5)This method takes array of words from any string and returns no of occurances
@@ -159,6 +159,7 @@ def compare_dates_and_calculate_days(day1,month1,year1,day2,month2,year2)
   end
     print "\n\nNumber of days between given dates are:#{(time_2-time_1)/(24*60*60)}\n"
 end
+compare_dates_and_calculate_days(1,4,2014,1,4,2014)
 
 #Q(19)This method prints date after specified no of days
 def print_date_after(no_of_days)
@@ -185,23 +186,26 @@ combine_strings($string1,$string2)
 print "\n"
 
 #Q(21)
-def regex_for_email_for_weboniselab_domain(email)
-  if email =~ /^[a-z A-Z][\.|\_|\-][a-z A-Z 0-9]* [\@]weboniselab.com/
+def regex_weboniselab_domain(email)
+  if email =~ /(\w)+(\.?(\w)+)+@weboniselab(\.\w{2,3})+/
     print "\n Matching email with pattern\n"
   else
     print "\n NOT Matching email with pattern\n"
   end
 end
+regex_weboniselab_domain("sachin.s.wagh@Weboniselab.com")
 
 #Q(22)
-def regex_for_phone_number_pattern(phone_number)
+def regex_phone_number(phone_number)
 #/^[\+]78________$/
-  if phone_number =~ /(^[\+78])(\d[0-9][8])\z/
-    print "\n Matching phone number with pattern\n"
+  if phone_number =~ /\+78\d{8,8}/
+    print "\n #{phone_number} is matching with pattern\n"
   else
-    print "\n NOT Matching phone number with pattern\n"
+    print "\n #{phone_number}is NOT matching with pattern\n"
   end
 end
+regex_phone_number("+7845546897")
+regex_phone_number("+8845546897")
 
 #Q(23)
 def regex_to_find_site_and_type(url)

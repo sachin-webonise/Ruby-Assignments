@@ -1,3 +1,5 @@
+webonise@webonise-desktop:~/Projects/ruby_assignments/ruby_assignment1$ ruby string_operations.rb
+
 Ruby Word occured 3 times
 
 
@@ -10,14 +12,14 @@ Recursive_print:
 After capitalising: 
 RUBY PARSES A FILE BY LOOKING FOR <BR/> ONE OF THE SPECIAL TAGS THAT TELLS IT TO START INTERPRETING THE TEXT AS RUBY CODE. THE PARSER THEN EXECUTES ALL OF THE CODE IT FINDS UNTIL IT RUNS INTO A RUBY CLOSING <BR/> TAG
 
-Current Date is: (2014-01-01)
+Current Date is: (2014-01-13)
 
 
 
 Given date is: 12th Jan 2019
 
 
-After 7 days: 2014-01-08
+After 7 days: 2014-01-20
 
 
 4 parts of string are: 
@@ -38,9 +40,21 @@ Length of given string is: 216
 
 Length of given string is: 162
 
- Date after 20 days is:  2014-01-21
-Time in array format : [1 , 1, 2014]
+Days are Same
+
+Number of days between given dates are:0.0
+
+
+ Date after 20 days is:  2014-02-02
+Time in array format : [13 , 1, 2014]
 
 After concatenation: 
 
 RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tagRUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used.
+
+
+ NOT Matching email with pattern
+
+ +7845546897 is matching with pattern
+
+ +8845546897is NOT matching with pattern
