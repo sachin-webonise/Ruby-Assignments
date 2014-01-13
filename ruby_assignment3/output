@@ -1,0 +1,427 @@
+sachin@sachin:~/ruby_assignments/ruby_assignment3$ ruby shop_inventory.rb
+
+Welcome to shop
+
+	TYPE of Person 
+
+1.Shopkeeper 
+2.Customer
+ Enter your type: 
+1
+
+
+	MENU 
+
+1.Add Product 
+2.Remove Product
+3.View List of Products 
+4.Search Product 
+5.Edit product details
+
+Enter your choice: 1
+
+
+Max product id: 11
+Enter product name: 
+Laptop
+
+Enter product price: 
+32000
+
+Enter product stock item: 
+5
+
+Enter product company name of the product: 
+Dell 
+
+Product_id     Product_name            Price        Stock Items      Company Name       
+------------------------------------------------------------------------------------------
+      1             mobile             5000             12             nokia
+       
+      3             Monitor             6000             3             LG
+       
+      5             books             35             20             sundaram
+       
+      6             Router             700             2             binatone
+       
+      7             shoes             1700             2             addidas
+       
+      8             pencil             5             500             Natraj
+       
+      9             Wallet             700             3             Sunshine
+       
+      10             Sounds             1000             21             Artis
+       
+      11             mouse             400             2             Logitech
+       
+      12             Laptop             32000             5             Dell
+       
+
+
+Do you want to add more products(y/n): n
+
+
+Hey Shopkeeper do you want to continue to shop(y/n): y
+
+
+	MENU 
+
+1.Add Product 
+2.Remove Product
+3.View List of Products 
+4.Search Product 
+5.Edit product details
+
+Enter your choice: 2
+
+
+Enter id of the product to be removed: 8
+Record Removed
+
+Product_id     Product_name            Price        Stock Items      Company Name       
+------------------------------------------------------------------------------------------
+      1             mobile             5000             12             nokia
+       
+      3             Monitor             6000             3             LG
+       
+      5             books             35             20             sundaram
+       
+      6             Router             700             2             binatone
+       
+      7             shoes             1700             2             addidas
+       
+      9             Wallet             700             3             Sunshine
+       
+      10             Sounds             1000             21             Artis
+       
+      11             mouse             400             2             Logitech
+       
+      12             Laptop             32000             5             Dell
+       
+
+
+Hey Shopkeeper do you want to continue to shop(y/n): y
+
+
+	MENU 
+
+1.Add Product 
+2.Remove Product
+3.View List of Products 
+4.Search Product 
+5.Edit product details
+
+Enter your choice: 3
+
+Product_id     Product_name            Price        Stock Items      Company Name       
+------------------------------------------------------------------------------------------
+      1             mobile             5000             12             nokia
+       
+      3             Monitor             6000             3             LG
+       
+      5             books             35             20             sundaram
+       
+      6             Router             700             2             binatone
+       
+      7             shoes             1700             2             addidas
+       
+      9             Wallet             700             3             Sunshine
+       
+      10             Sounds             1000             21             Artis
+       
+      11             mouse             400             2             Logitech
+       
+      12             Laptop             32000             5             Dell
+       
+
+
+Hey Shopkeeper do you want to continue to shop(y/n): y
+
+
+	MENU 
+
+1.Add Product 
+2.Remove Product
+3.View List of Products 
+4.Search Product 
+5.Edit product details
+
+Enter your choice: 4
+
+
+Enter name of the product to search: mouse
+
+
+Details of the product you want are:
+ 11,mouse,400,2,Logitech
+
+
+Hey Shopkeeper do you want to continue to shop(y/n): y
+
+
+	MENU 
+
+1.Add Product 
+2.Remove Product
+3.View List of Products 
+4.Search Product 
+5.Edit product details
+
+Enter your choice: 5
+
+
+Enter id of the product to be edited: 5
+
+Lets edit details of the product with id= 5: 
+
+Enter product name: 
+Note book            
+
+Enter product price: 
+40
+
+Enter product stock item: 
+100
+
+Enter product company name of the product: 
+tech max
+
+After editing list of products is: 
+
+Product_id     Product_name            Price        Stock Items      Company Name       
+------------------------------------------------------------------------------------------
+      1             mobile             5000             12             nokia
+       
+      3             Monitor             6000             3             LG
+       
+      5             Note book             40             100             tech max
+       
+      6             Router             700             2             binatone
+       
+      7             shoes             1700             2             addidas
+       
+      9             Wallet             700             3             Sunshine
+       
+      10             Sounds             1000             21             Artis
+       
+      11             mouse             400             2             Logitech
+       
+      12             Laptop             32000             5             Dell
+       
+
+
+Hey Shopkeeper do you want to continue to shop(y/n): n
+
+
+Do you want to continue(y/n): y
+
+Welcome to shop
+
+	TYPE of Person 
+
+1.Shopkeeper 
+2.Customer
+ Enter your type: 
+2
+
+
+	MENU
+
+1.View List of Products 
+2.Search Product 
+3.Buy Product
+
+Enter your choice: 1
+
+Product_id     Product_name            Price        Stock Items      Company Name       
+------------------------------------------------------------------------------------------
+      1             mobile             5000             12             nokia
+       
+      3             Monitor             6000             3             LG
+       
+      5             Note book             40             100             tech max
+       
+      6             Router             700             2             binatone
+       
+      7             shoes             1700             2             addidas
+       
+      9             Wallet             700             3             Sunshine
+       
+      10             Sounds             1000             21             Artis
+       
+      11             mouse             400             2             Logitech
+       
+      12             Laptop             32000             5             Dell
+       
+
+
+Hey Customer do you want to continue shopping(y/n): y
+
+
+	MENU
+
+1.View List of Products 
+2.Search Product 
+3.Buy Product
+
+Enter your choice: 2
+
+
+Enter name of the product to search: Wallet
+
+
+Details of the product you want are:
+ 9,Wallet,700,3,Sunshine
+
+
+Hey Customer do you want to continue shopping(y/n): y
+
+
+	MENU
+
+1.View List of Products 
+2.Search Product 
+3.Buy Product
+
+Enter your choice: 3
+
+ Enter id of product that you want to buy: 11
+
+ Enter your name: Sachin Wagh
+
+ Enter your credit card number: 511
+
+ Enter CVV number: 699
+order record is : 11,Sachin Wagh,511,699,
+
+
+ No of items of product mouse available are: 2
+Enter the no of items less than 2: 1
+
+
+Product name: mouse
+Total Price: 400
+
+Hey Customer do you want to continue shopping(y/n): y
+
+
+	MENU
+
+1.View List of Products 
+2.Search Product 
+3.Buy Product
+
+Enter your choice: 3
+
+ Enter id of product that you want to buy: 7
+
+ Enter your name: Nitin Wagh
+
+ Enter your credit card number: 546
+
+ Enter CVV number: 321 
+order record is : 7,Nitin Wagh,546,321,
+
+
+ No of items of product shoes available are: 2
+Enter the no of items less than 2: 2
+
+
+Product name: shoes
+Total Price: 3400
+
+Hey Customer do you want to continue shopping(y/n):n
+
+
+sachin@sachin:~/ruby_assignments/ruby_assignment3$ ruby shop_inventory.rb
+
+Welcome to shop
+
+      TYPE of Person 
+
+1.Shopkeeper 
+2.Customer
+ Enter your type: 
+2
+
+
+      MENU
+
+1.View List of Products 
+2.Search Product 
+3.Buy Product
+
+Enter your choice: 3
+
+ Enter id of product that you want to buy: 10
+
+ Enter your name: Nitin S Wagh      
+
+ Enter your credit card number: 321
+
+ Enter CVV number: 123
+order record is : 10,Nitin S Wagh,321,123,
+
+
+ No of items of product Sounds available are: 21
+Enter the no of items less than 21: 15
+
+
+Product name: Sounds
+Total Price: 15000
+
+Hey Customer do you want to continue shopping(y/n): y
+
+
+      MENU
+
+1.View List of Products 
+2.Search Product 
+3.Buy Product
+
+Enter your choice: 3
+
+ Enter id of product that you want to buy: 11
+
+ Enter your name: Akash shinde       
+
+ Enter your credit card number: 8987
+
+ Enter CVV number: 254
+order record is : 11,Akash shinde,8987,254,
+
+
+ No of items of product mouse available are: 1
+Enter the no of items less than 1: 1
+
+
+Product name: mouse
+Total Price: 400
+
+Hey Customer do you want to continue shopping(y/n): y
+
+
+      MENU
+
+1.View List of Products 
+2.Search Product 
+3.Buy Product
+
+Enter your choice: 3
+
+ Enter id of product that you want to buy: 11
+
+ Enter your name: Nitin Wagh        
+
+ Enter your credit card number: 321
+
+ Enter CVV number: 123
+order record is : 11,Nitin Wagh,321,123,
+
+
+Product is NOT available .......
+
+Hey Customer do you want to continue shopping(y/n): n
+
+
+Do you want to continue(y/n): n

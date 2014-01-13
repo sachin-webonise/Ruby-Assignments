@@ -42,8 +42,8 @@ class Shop
 
   def go_to_shop
     begin
-      puts "Welcome to shop"
-      print "\n\n\tTYPE of Person \n\n1.Shopkeeper \n2.Customer"
+      puts "\nWelcome to shop"
+      print "\n\tTYPE of Person \n\n1.Shopkeeper \n2.Customer"
       puts "\n Enter your type: "
       type = gets
 
@@ -51,16 +51,15 @@ class Shop
       shopkeeper=Shopkeeper.new
       begin
         shopkeeper.choices_to_shopkeeper
-        print "\n\nHey Shopkeeper do you want to continue(y/n): "
+        print "\n\nHey Shopkeeper do you want to continue to shop(y/n): "
         shopkeeper_choice=gets
       end while(shopkeeper_choice.casecmp("y\n")==0)
     elsif type.to_i==2
       customer=Customer.new
       begin
         customer.choices_to_customer
-        print "\n\nHey Customer do you want to continue(y/n): "
+        print "\n\nHey Customer do you want to continue shopping(y/n): "
         customer_choice=gets
-        puts customer_choice.casecmp("y\n")
       end while(customer_choice.casecmp("y\n")==0)  
     else
       puts "\nWrong type entered."   

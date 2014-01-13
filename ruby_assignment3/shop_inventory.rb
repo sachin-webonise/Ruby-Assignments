@@ -17,11 +17,15 @@ class Shopkeeper < Product
       shop=Shop.new
       case choice.to_i
         when 1
-          id=shop.get_max_product_id
-          id+=1
-          product_details=shop.ask_product_details(id)
-          add_product(product_details)
-          list_all_products
+          begin
+            id=shop.get_max_product_id
+            id+=1
+            product_details=shop.ask_product_details(id)
+            add_product(product_details)
+            list_all_products
+            print "\n\nDo you want to add more products(y/n): "
+            choice=gets
+          end while(choice.casecmp("y\n")==0)
         when 2
           print "\n\nEnter id of the product to be removed: "
           id_to_be_removed=gets
@@ -34,7 +38,7 @@ class Shopkeeper < Product
         when 5
           print "\n\nEnter id of the product to be edited: "
           id_to_be_edited=gets
-          edit(id_to_be_edited.to_i)
+          edit(id_to_be_edited.to_i,true,0)
           puts "\nAfter editing list of products is: "
           list_all_products
         else
@@ -86,7 +90,7 @@ class Shopkeeper < Product
     FileUtils.mv('temp_file', 'inventory')
   end
 
-  def edit(id_to_be_edited)
+  def edit(id_to_be_edited, edit_request, remove_no_items)
     list=Array[]       
     File.open("inventory", "r") do |file_name|
       if file_name
@@ -102,16 +106,23 @@ class Shopkeeper < Product
         if id_to_be_edited!=attributes[0].to_i
           temp_file.syswrite(record)
         else
-          puts "\nLets edit details of the product with id= #{id_to_be_edited}: "
           shop=Shop.new
-          product_details=shop.ask_product_details(id_to_be_edited)
+          if edit_request
+            puts "\nLets edit details of the product with id= #{id_to_be_edited}: "
+            product_details=shop.ask_product_details(id_to_be_edited)
+          else
+            product_details=attributes
+            product_details[3]=product_details[3].to_i- remove_no_items.to_i
+            product_details[3].to_s
+          end
           record=""
           product_details.each do |product_attribute|
             product_attribute.to_s
-            product_attribute.chomp!
+            product_attribute.chomp! if edit_request
             record.concat("#{product_attribute},")
           end
           record.chop!
+          record.concat("\n") if edit_request
           temp_file.syswrite(record)
           
         end
